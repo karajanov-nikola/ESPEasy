@@ -246,6 +246,18 @@ void addFormSelector(const String& label,
   addSelector(id, optionCount, options, indices, attr, selectedIndex, reloadonchange, true);
 }
 
+void addFormSelector(String& str, const String& label, const String& id, int optionCount, const String options[], const int indices[], const String attr[], int selectedIndex, boolean reloadonchange)
+{
+  addRowLabel(str, label);
+  addSelector(str, id, optionCount, options, indices, attr, selectedIndex, reloadonchange);
+  TXBuffer.checkFull();
+}
+
+void addFormSelector(String& str, const String& label, const String& id, int optionCount, const String options[], const int indices[], int selectedIndex)
+{
+  addFormSelector(str, label, id, optionCount, options, indices, NULL, selectedIndex, false);
+}
+
 void addFormSelector_script(const String& label,
                             const String& id,
                             int           optionCount,

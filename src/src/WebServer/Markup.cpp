@@ -54,6 +54,39 @@ void addSelector(const String& id,
   addSelector_Foot();
 }
 
+void addSelector(String& str, const String& id, int optionCount, const String options[], const int indices[], const String attr[], int selectedIndex, boolean reloadonchange)
+{
+  int index;
+
+  str += F("<select name='");
+  str += id;
+  str += F("'");
+  if (reloadonchange)
+    str += F(" onchange=\"return dept_onchange(frmselect)\"");
+  str += F(">");
+  for (byte x = 0; x < optionCount; x++)
+  {
+    if (indices)
+      index = indices[x];
+    else
+      index = x;
+    str += F("<option value=");
+    str += index;
+    if (selectedIndex == index)
+      str += F(" selected");
+    if (attr)
+    {
+      str += F(" ");
+      str += attr[x];
+    }
+    str += ">";
+    str += options[x];
+    str += F("</option>");
+    TXBuffer.checkFull();
+  }
+  str += F("</select>");
+}
+
 void addSelector_options(int optionCount, const String options[], const int indices[], const String attr[], int selectedIndex)
 {
   int index;

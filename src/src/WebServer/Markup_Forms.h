@@ -111,6 +111,8 @@ void addFormSelector(const String& label,
                      int           selectedIndex,
                      boolean       reloadonchange);
 
+void addFormSelector(const String& label, const String& id, int optionCount, const String options[], const int indices[], int selectedIndex);
+
 void addFormSelector_script(const String& label,
                             const String& id,
                             int           optionCount,

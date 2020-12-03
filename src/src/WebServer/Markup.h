@@ -33,6 +33,8 @@ void addSelector(const String& id,
                  bool          enabled,
                  const String& classname);
 
+void addSelector(String& str, const String& id, int optionCount, const String options[], const int indices[], const String attr[], int selectedIndex, boolean reloadonchange);
+
 void addSelector_options(int optionCount, const String options[], const int indices[], const String attr[], int selectedIndex);
 
 void addSelector_option(const int index, const String& option, const String& attr, bool isSelected);
